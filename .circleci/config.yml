@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  placeholder:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Confirm pipeline is working
+          command: echo "Pipeline is set up. Add build, test, and lint steps here once source code is added."
+
+workflows:
+  build-and-test:
+    jobs:
+      - placeholder
