@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Confirm pipeline is working
-          command: echo "Pipeline is set up. Add build, test, and lint steps here once source code is added."
+          command: echo "Pipeline is set up and running file. Add build, test, and lint steps here once source code is added."
 
 workflows:
   build-and-test:
