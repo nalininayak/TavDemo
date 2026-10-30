@@ -1,16 +1,32 @@
 version: 2.1
 
 jobs:
-  placeholder:
+  build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/python:3.12
+
+    working_directory: ~/project
+
     steps:
       - checkout
+
       - run:
-          name: Confirm pipeline is working
-          command: echo "Pipeline is set up and running file. Add build, test, and lint steps here once source code is added. Lets start the first step now"
+          name: Check Python Version
+          command: python --version
+
+      - run:
+          name: Install Dependencies
+          command: |
+            python -m pip install --upgrade pip
+            if [ -f requirements.txt ]; then
+              pip install -r requirements.txt
+            fi
+
+      - run:
+          name: Run Application Test
+          command: python app.py
 
 workflows:
-  build-and-test:
+  test-workflow:
     jobs:
-      - placeholder
+      - build
