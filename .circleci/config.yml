@@ -6,19 +6,19 @@ jobs:
       - image: cimg/python:3.8
     steps:
       - checkout
-      - run: echo "Building image"
+      - run: echo "Building image in hub"
 
   test:
     docker:
       - image: cimg/python:3.8
     steps:
-      - run: echo "Testing phase"
+      - run: echo "Testing phase on VM"
 
   deploy:
     docker:
       - image: cimg/python:3.8
     steps:
-      - run: echo "Deploying application"
+      - run: echo "Deploying application on CirclrCI"
 
 workflows:
   build-test-deploy:
