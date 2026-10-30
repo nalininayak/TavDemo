@@ -10,7 +10,7 @@ jobs:
           name: Confirm pipeline is working
           command: echo "Pipeline is set up and running file. Add build, test, and lint steps here once source code is added. Lets start the first step now"
 
-workflows:
+workflows
   build-and-test:
     jobs:
       - placeholder
