@@ -1,24 +1,23 @@
-
 version: 2.1
 
 jobs:
-  demo:
+  build:
     docker:
-      - image: cimg/base:current
-
+      - image: cimg/python:3.8
     steps:
-      - run:
-          name: Welcome Message
-          command: echo "Hello from CircleCI!"
+      - checkout
+      - run: echo "Building image"
 
-      - run:
-          name: Demo Pipeline
-          command: |
-            echo "Starting CircleCI demo"
-            echo "Testing CI pipeline"
-            echo "Pipeline completed successfully"
+  test:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - run: echo "Testing phase"
 
 workflows:
   demo-workflow:
     jobs:
-      - demo
+      - build
+      - test:
+          requires:
+            - build
